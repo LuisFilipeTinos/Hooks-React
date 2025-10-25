@@ -5,15 +5,15 @@ import { Divider } from 'react-native-paper';
 
 export default function UseStateHook() {
 
-    const [numero, setNumero] = useState(0);
+  const [numero, setNumero] = useState(0);
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
 
-      <Text style={styles.respostaText}>{valor}</Text>
+      <Text style={styles.respostaText}>{numero}</Text>
       <Divider style={styles.divider}/>
-      <TouchableOpacity style={[styles.btn, styles.btnAumenta]} onPress={() => { setValor(valor + 1); }}>
+      <TouchableOpacity style={[styles.btn, styles.btnAumenta]} onPress={() => { setNumero(numero + 1); }}>
         <Text style={styles.btnText}>Aumentar Valor</Text>
       </TouchableOpacity>
     </View>
