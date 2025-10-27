@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Divider } from 'react-native-paper';
 
+//Quando retornamos um novo valor, o React vai renderizar os componentes novamente!
 const reducer = (state, action) => {
     //state === { valor: 0 }
     //action === { type: string, payload: 1 }
@@ -13,15 +14,13 @@ const reducer = (state, action) => {
         case 'diminuir': //NUNCA DEVEMOS ALTERAR O OBJETO DO STATE DIRETAMENTE!
             return {...state, valor: state.valor - action.payload };
         default: 
-            return state;
+            return state; //Não dispara o re-render! É o mesmo objeto! O React pensa que nada mudou
     }
 }
 
 export default function UseReducerHook() {
 
     const [state, dispatch] = useReducer(reducer, { valor: 0 });
-    //useState retorna dois valores: o estado (valor) e a função de 
-    //alteração do estado (que altera o valor do estado "valor");
 
     //dispatch: função usada para chamar um reducer (definimos a action que 
     //será enviada ao reducer);
